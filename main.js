@@ -105,11 +105,6 @@ function setup() {
   canvas.parent('game-container');
   men = [];
   women = [];
-  // Enable high DPI rendering
-  pixelDensity(2);
-  // Add image smoothing
-  imageMode(CENTER);
-  smooth();
   for (let i = 0; i < numPairs; i++) {
     men.push({
       x: 150,
