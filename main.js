@@ -95,14 +95,17 @@ function generatePreferences() {
 
 function preload() {
   for (let i = 0; i < numPairs; i++) {
-    menImages[i] = loadImage('disneyfacesmarriage/men/' + i + '.png');
-    womenImages[i] = loadImage('disneyfacesmarriage/women/' + i + '.png');
+    menImages[i] = loadImage('./disneyfacesmarriage/men/' + i + '.png');
+    womenImages[i] = loadImage('./disneyfacesmarriage/women/' + i + '.png');
   }
 }
 
 function setup() {
   let canvas = createCanvas(800, 400);
   canvas.parent('game-container');
+  // Add image smoothing
+  imageMode(CENTER);
+  smooth();
   men = [];
   women = [];
   for (let i = 0; i < numPairs; i++) {
@@ -227,21 +230,21 @@ function draw() {
     }
   }
 
-  // Draw men
+  // Draw men with larger size and smoothing
   imageMode(CENTER);
   for (let i = 0; i < men.length; i++) {
     if (menImages[i]) {
-      image(menImages[i], men[i].x, men[i].y, 50, 50);
+      image(menImages[i], men[i].x, men[i].y, 100, 100);
     } else {
       fill(men[i].color);
       ellipse(men[i].x, men[i].y, 50, 50);
     }
   }
-  // Draw women
+  // Draw women with larger size and smoothing
   imageMode(CENTER);
   for (let i = 0; i < women.length; i++) {
     if (womenImages[i]) {
-      image(womenImages[i], women[i].x, women[i].y, 50, 50);
+      image(womenImages[i], women[i].x, women[i].y, 100, 100);
     } else {
       fill(women[i].color);
       ellipse(women[i].x, women[i].y, 50, 50);
