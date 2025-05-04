@@ -1326,10 +1326,4 @@ window.addEventListener('DOMContentLoaded', () => {
       if (instructionsDiv) instructionsDiv.style.display = 'none';
     }
   }
-});
-
-// Add window resize handler
-function windowResized() {
-  resizeCanvas(800, 400);
-  pixelDensity(2);
-} 
+}); 
