@@ -101,8 +101,11 @@ function preload() {
 }
 
 function setup() {
+  // Create a high-resolution canvas
   let canvas = createCanvas(800, 400);
   canvas.parent('game-container');
+  // Enable high DPI rendering
+  pixelDensity(2);
   // Add image smoothing
   imageMode(CENTER);
   smooth();
@@ -137,6 +140,8 @@ function setup() {
 }
 
 function draw() {
+  // Clear the canvas with a transparent background
+  clear();
   if (affairMode === 'roommate') {
     roommateMode = true;
     drawRoommateMode();
@@ -1329,4 +1334,10 @@ window.addEventListener('DOMContentLoaded', () => {
       if (instructionsDiv) instructionsDiv.style.display = 'none';
     }
   }
-}); 
+});
+
+// Add window resize handler
+function windowResized() {
+  resizeCanvas(800, 400);
+  pixelDensity(2);
+} 
