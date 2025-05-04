@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stable Marriage Puzzle Game</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .main-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      width: 100%;
+      margin-top: 0;
+    }
+    .game-section {
+      width: 800px;
+      min-width: 800px;
+    }
+    .button-section {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 0;
+    }
+    #game-container {
+      width: 800px;
+      height: 400px;
+    }
+    .mode-selector {
+      margin-bottom: 0;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    body {
+      margin: 0;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="game-section">
+      <div id="matches"></div>
+      <div id="game-container"></div>
+    </div>
+    <div class="button-section">
+      <div class="mode-selector">
+        <label for="mode-select"><b>Mode:</b></label>
+        <select id="mode-select">
+          <option value="one">One Affair</option>
+          <option value="chain">Cheated on Lovers</option>
+          <option value="roommate">Gay Marriage Allowed</option>
+        </select>
+      </div>
+      <div class="button-container">
+        <button id="check-stability">Check Stability</button>
+        <button id="reset-btn">Reset</button>
+        <button id="auto-match-btn">Auto Match & Check</button>
+        <button id="irving-btn" style="display: none;">Find Stable Matching</button>
+        <button id="toggle-instructions">Show Gale-Shapley</button>
+      </div>
+      <span id="result-message"></span>
+      <div id="instructions" style="display: none; margin-top: 10px; padding: 10px; background-color: #f5f5f5; border-radius: 5px; text-align: left;">
+        <div style="margin-left: 20px;">
+          1) Choose any single man, have him propose to his top choice that has not yet rejected or dumped him.<br><br>
+          2) If the woman he is proposing to is single, she accepts. If the woman is not single, she compares the man she is matched with to the man who is proposing and she chooses her preference.<br><br>
+          3) Repeat steps 1-2 until there are no single men. This will always produce a stable matching.<br><br>
+          <br>
+          (You can click on the images in the table to keep track of the women who have rejected or dumped a man)
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html> 
