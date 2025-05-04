@@ -101,16 +101,15 @@ function preload() {
 }
 
 function setup() {
-  // Create a high-resolution canvas
   let canvas = createCanvas(800, 400);
   canvas.parent('game-container');
+  men = [];
+  women = [];
   // Enable high DPI rendering
   pixelDensity(2);
   // Add image smoothing
   imageMode(CENTER);
   smooth();
-  men = [];
-  women = [];
   for (let i = 0; i < numPairs; i++) {
     men.push({
       x: 150,
@@ -140,8 +139,6 @@ function setup() {
 }
 
 function draw() {
-  // Clear the canvas with a transparent background
-  clear();
   if (affairMode === 'roommate') {
     roommateMode = true;
     drawRoommateMode();
@@ -235,21 +232,21 @@ function draw() {
     }
   }
 
-  // Draw men with larger size and smoothing
+  // Draw men
   imageMode(CENTER);
   for (let i = 0; i < men.length; i++) {
     if (menImages[i]) {
-      image(menImages[i], men[i].x, men[i].y, 100, 100);
+      image(menImages[i], men[i].x, men[i].y, 50, 50);
     } else {
       fill(men[i].color);
       ellipse(men[i].x, men[i].y, 50, 50);
     }
   }
-  // Draw women with larger size and smoothing
+  // Draw women
   imageMode(CENTER);
   for (let i = 0; i < women.length; i++) {
     if (womenImages[i]) {
-      image(womenImages[i], women[i].x, women[i].y, 100, 100);
+      image(womenImages[i], women[i].x, women[i].y, 50, 50);
     } else {
       fill(women[i].color);
       ellipse(women[i].x, women[i].y, 50, 50);
